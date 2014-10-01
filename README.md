@@ -41,6 +41,35 @@ $ npm install grunt --save-dev
 $ npm install grunt-contrib-concat grunt-contrib-uglify --save-dev
 ```
 
-Ключ `--save-dev` в дополнение к установке добавляет ссылку на пакет в package.json. Установить все зависимости, уже перечисленные в файле, можно командой `npm install`.
+Ключ `--save-dev` в дополнение к установке добавляет ссылку на пакет в package.json. После установки плагинов файл package.json будет выглядеть [примерно так](http://gruntjs.com/getting-started#package.json).
+
+Установить все зависимости, уже перечисленные в файле, можно командой `npm install`.
 
 ### Gruntfile.js
+
+Грантфайл имеет следующий синтаксис:
+
+```javascript
+// Обязательная обёртка
+module.exports = function(grunt) {
+
+	// Конфигурация
+	grunt.initConfig({
+		concat: {
+			// Настройка плагина concat
+		},
+		uglify: {
+			// Настройка плагина uglify
+		}
+	});
+	
+	// Загрузка плагинов, установленных с помощью npm install
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	
+	// Задача по умолчанию
+	grunt.registerTask('default', ['concat', 'uglify']);
+};
+```
+
+[Пример](http://gruntjs.com/getting-started#an-example-gruntfile) Gruntfile.js с плагином uglify.
