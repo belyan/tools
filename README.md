@@ -29,7 +29,7 @@ $ npm install grunt-cli -g
 }
 ```
 
-Теперь нужно установить (и добавить в package.json) зависимости нашего проекта. [Грант](https://github.com/gruntjs/grunt/):
+Теперь нужно установить (и добавить в package.json) зависимости нашего проекта. Устанавливаем [Грант](https://github.com/gruntjs/grunt/):
 
 ```bash
 $ npm install grunt --save-dev
