@@ -1,3 +1,5 @@
+![Grunt](grunt-logo.png)
+
 ## Установка
 
 Для использования Гранта вам понадобится установить [Node.js](http://nodejs.org/). Вместе с Нодой установится менеджер пакетов `npm`, который понадобится для установки самого Гранта и его плагинов.
@@ -72,4 +74,18 @@ module.exports = function(grunt) {
 };
 ```
 
+Обратите внимание на задачу по умолчанию default — это просто «ссылка» на задачи concat и uglify. Она обязательно должна быть в грантфайле.
+
 [Пример](http://gruntjs.com/getting-started#an-example-gruntfile) Gruntfile.js с плагином uglify.
+
+## Запуск
+
+```bash
+$ grunt  # Задача default
+$ grunt concat  # Задача concat
+$ grunt concat:main  # Подзадача concat:main
+
+$ grunt --debug
+```
+
+Во время разработки удобно запускать Грант с ключом `--debug`. Задачи могут использовать его по-разному. Например, [grunt-contrib-stylus](https://github.com/gruntjs/grunt-contrib-stylus) в отладочном режиме не сжимает CSS-код.
