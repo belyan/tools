@@ -26,8 +26,8 @@ $ npm install grunt-cli -g
 
 ```json
 {
-	"name": "MyProject",
-	"version": "0.1.0"
+    "name": "MyProject",
+    "version": "0.1.0"
 }
 ```
 
@@ -55,22 +55,22 @@ $ npm install grunt-contrib-concat grunt-contrib-uglify --save-dev
 // Обязательная обёртка
 module.exports = function(grunt) {
 
-	// Конфигурация
-	grunt.initConfig({
-		concat: {
-			// Настройка плагина concat
-		},
-		uglify: {
-			// Настройка плагина uglify
-		}
-	});
-	
-	// Загрузка плагинов, установленных с помощью npm install
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	
-	// Задача по умолчанию
-	grunt.registerTask('default', ['concat', 'uglify']);
+    // Конфигурация
+    grunt.initConfig({
+        concat: {
+            // Настройка плагина concat
+        },
+        uglify: {
+            // Настройка плагина uglify
+        }
+    });
+
+    // Загрузка плагинов, установленных с помощью npm install
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+
+    // Задача по умолчанию
+    grunt.registerTask('default', ['concat', 'uglify']);
 };
 ```
 
@@ -89,3 +89,17 @@ $ grunt --debug
 ```
 
 Во время разработки удобно запускать Грант с ключом `--debug`. Задачи могут использовать его по-разному. Например, [grunt-contrib-stylus](https://github.com/gruntjs/grunt-contrib-stylus) в отладочном режиме не сжимает CSS-код.
+
+## Плагины
+
+Плагины из коллекции contrib (поддерживаются разработчиками Гранта):
+- [concat](https://github.com/gruntjs/grunt-contrib-concat) — склеивание файлов;
+- [uglify](https://github.com/gruntjs/grunt-contrib-uglify) — минификация JS (UglifyJS);
+- [jshint](https://github.com/gruntjs/grunt-contrib-jshint) — проверка JS (JSHint);
+- [watch](https://github.com/gruntjs/grunt-contrib-watch) — отслеживание изменений в файлах;
+- [connect](https://github.com/gruntjs/grunt-contrib-connect) — простой веб-сервер для статики;
+- [imagemin](https://github.com/gruntjs/grunt-contrib-imagemin) — оптимизация картинок;
+- CSS-препроцессоры: [sass](https://github.com/gruntjs/grunt-contrib-sass), [less](https://github.com/gruntjs/grunt-contrib-less), [stylus](https://github.com/gruntjs/grunt-contrib-stylus);
+- тестовые фреймворки: [qunit](https://github.com/gruntjs/grunt-contrib-qunit), [jasmine](https://github.com/gruntjs/grunt-contrib-jasmine).
+
+Полный список плагинов можно найти на [gruntjs.com](http://gruntjs.com/).
