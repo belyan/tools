@@ -1,4 +1,4 @@
-![Grunt](grunt-logo.png)
+<img src="https://gruntjs.com/img/grunt-logo.svg" width="200" alt="Grunt">
 
 ## Установка
 
