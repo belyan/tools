@@ -1,3 +1,5 @@
+![Markdown](https://rawgit.com/dcurtis/markdown-mark/master/svg/markdown-mark.svg)
+
 # Markdown
 
 [Markdown](https://en.wikipedia.org/wiki/Markdown) (маркдаун) — облегчённый язык разметки.
