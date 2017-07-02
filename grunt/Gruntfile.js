@@ -1,49 +1,54 @@
-// Обязательная обёртка
 module.exports = function(grunt) {
-
-    // Конфигурация
     grunt.initConfig({
-        // Настройка плагина less
-        less: {
-            development: {
-                files: {
-                    'css/main.css': 'less/main.less'
-                }
-            }
-        },
-        // Настройка плагина closure-soy
-        closureSoys: {
-            all: {
-                src: 'templates/**/*.soy',
-                soyToJsJarPath: 'templates/compiler.jar',
-                outputPathFormat: 'js/blocks/{INPUT_FILE_NAME}.js',
-                options: {
-                    shouldGenerateJsdoc: false,
-                    shouldProvideRequireSoyNamespaces: false
-                }
-            }
-        },
-        // Настройка плагина watch
-        watch: {
-            styles: {
-                files: 'less/**/*.less',
-                tasks: 'less',
-                options: {
-                    spawn: false
-                }
+        coffee: {
+            options: {
+                bare: true
             },
-            templates: {
-                files: 'templates/**/*.soy',
-                tasks: 'closureSoys'
+            scripts: {
+                expand: true,
+                flatten: true,
+                cwd: 'coffee/',
+                src: ['*.coffee'],
+                dest: 'js/',
+                ext: '.js'
+            }
+        },
+
+        watch: {
+            options: {
+                livereload: true
+            },
+            scripts: {
+                files: ['coffee/*.coffee'],
+                tasks: ['process']
+            }
+        },
+
+        concat: {
+            dist: {
+                src: ['js/*.js'],
+                dest: 'dist/js/all.js'
+            }
+        },
+
+        uglify: {
+            dist: {
+                options: {
+                    banner: '/* Created by Sorax | 2014 */'
+                },
+                files: {
+                    'dist/js/all.min.js': ['dist/js/all.js']
+                }
             }
         }
     });
 
-    // Загрузка плагинов, установленных с помощью npm install
-    grunt.loadNpmTasks('grunt-closure-soy');
-    grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-newer');
 
-    // Задача по умолчанию
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('process', ['newer:coffee', 'concat', 'uglify']);
+    grunt.registerTask('default', ['coffee', 'concat', 'uglify', 'watch']);
 };
