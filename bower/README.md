@@ -1,4 +1,4 @@
-![Bower](https://bower.io/img/bower-logo.svg)
+<img src="https://bower.io/img/bower-logo.svg" width="200" alt="Bower">
 
 # Bower
 
