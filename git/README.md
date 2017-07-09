@@ -28,7 +28,7 @@ git config --global core.editor vim
 
 #### Постраничный вывод длинных команд
 ```
-git config --global core.pager more
+git config --global core.pager "more -R"
 ```
 
 #### Параметры установки окончаний строк
@@ -45,7 +45,9 @@ git config --global core.safecrlf true
 
 #### Утилита сравнения
 ```
+git config --global diff.tool vimdiff
 git config --global merge.tool vimdiff
+git config --global difftool.prompt false
 ```
 
 #### Цвета
@@ -72,8 +74,7 @@ git config --global color.status true
     ci = commit
     st = status
     br = branch
-    hist = log --pretty=format:'%h %ai | %an <%ae> | %s %b' --max-count=25
-    histg = log --pretty=format:'%h %ai | %an <%ae> | %s' --graph --max-count 25
+    hist = log --pretty=format:'%h %ai | %an <%ae> | %s %b' --max-count=10
     info = config --list
     type = cat-file -t
     dump = cat-file -p
