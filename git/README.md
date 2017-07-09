@@ -35,10 +35,9 @@ git config --global core.pager more
 ```
 git config --global core.autocrlf <value>
 ```
-
- * `true` - конвертация LF в CRLF при выгрузке кода (Windows)
- * `input` - конвертация CRLF в LF только при коммитах (Unix)
- * `false` - разрешить записывать CRLF в репозиторий
+ * `true` - конвертация CRLF в LF при коммите и обратно LF в CRLF при выгрузке кода из репозитория (Windows)
+ * `input` - конвертация CRLF в LF только при коммитах (Mac/Linux)
+ * `false` - разрешить записывать CRLF в репозиторий (не рекомендуется)
 
 ```
 git config --global core.safecrlf true
