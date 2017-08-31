@@ -169,6 +169,12 @@ git branch --set-upstream master origin/master
 git submodule add git+ssh://git.yandex.ru/market/common.git common.hid
 ```
 
+#### Получить изменения из внешнего репозитория до определенного коммита
+```
+git fetch origin master
+git merge <hash>
+```
+
 #### Добавить файл в игнор
 ```
 touch .gitignore
