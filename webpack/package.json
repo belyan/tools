@@ -1,0 +1,15 @@
+{
+  "name": "webpack-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "home.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack"
+  },
+  "author": "Yuri Beliakov <yuri.beliakov@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^1.12.2"
+  }
+}
